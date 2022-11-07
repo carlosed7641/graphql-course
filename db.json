@@ -1,0 +1,24 @@
+{
+    "persons": [
+        {
+            "name": "Carlos Castro",
+            "phone": "1111",
+            "city": "Barranquilla",
+            "id": "1abc",
+            "street": "calle 1"
+        },
+        {
+            "name": "Juan Perez",
+            "phone": "2222",
+            "city": "Medellin",
+            "id": "2abc",
+            "street": "calle 2"
+        },
+        {
+            "name": "Mateo Lopez",
+            "city": "Bogota",
+            "id": "3abc",
+            "street": "calle 3"
+        }
+    ]
+}
