@@ -1,27 +1,26 @@
 import { gql, ApolloServer, UserInputError } from "apollo-server"
 import { v1 as uuid} from 'uuid'
-import axios from 'axios'
 
 const persons = [
     {
-        name: "Carlos",
-        phone: "1111",
-        city: "Barranquilla",
-        id: "1abc",
-        street: "calle 1"
+        "name": "Carlos Castro",
+        "phone": "1111",
+        "city": "Barranquilla",
+        "id": "1abc",
+        "street": "calle 1"
     },
     {
-        name: "Juan",
-        phone: "2222",
-        city: "Medellin",
-        id: "2abc",
-        street: "calle 2"
+        "name": "Juan Perez",
+        "phone": "2222",
+        "city": "Medellin",
+        "id": "2abc",
+        "street": "calle 2"
     },
     {
-        name: "Mateo",
-        city: "Bogota",
-        id: "3abc",
-        street: "calle 3"
+        "name": "Mateo Lopez",
+        "city": "Bogota",
+        "id": "3abc",
+        "street": "calle 3"
     }
 ]
 
@@ -71,11 +70,10 @@ const resolvers =  {
         personCount: () => persons.length,
         allPersons: async (root, args) =>  {
 
-            const { data: personsFromRestAPI } = await axios.get('http://localhost:3000/persons')
+        
+            if (!args.phone) return persons
 
-            if (!args.phone) return personsFromRestAPI
-
-            return personsFromRestAPI.filter(person => {
+            return persons.filter(person => {
                return args.phone === "YES" ? persons.phone : !person.phone
             })
 
