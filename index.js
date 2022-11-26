@@ -74,7 +74,7 @@ const resolvers =  {
             if (!args.phone) return persons
 
             return persons.filter(person => {
-               return args.phone === "YES" ? persons.phone : !person.phone
+               return args.phone === "YES" ? person.phone : !person.phone
             })
 
         },
